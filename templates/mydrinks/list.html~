@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Drink List{% enblock %}
+{% block content %}
+
+{% endblock %}

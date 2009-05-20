@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Drink List{% endblock %}
+{% block content %}
+<h1>{{object.name}}</h1>
+<h2>{{object.meta}}</h2>
+<div class="first comment">{{object.comment}}</div>
+<ul class="comments"> {# That's an idea to store data inside xhtml list, jquery compatible, isn't it ? #}
+{% for comment in object.comments %}
+  <li class="comment">
+    <ul>
+      <li class="rated by date"><span class="rated">{{comment.get_rating_display}}<span> by <span class="by">{{comment.name}}</span> <span class="date">{{comment.date}}</span></li>
+    </ul>
+  </li>
+{% endfor %}
+<ul>
+{% endblock %}
+{# pate modeler... #}
