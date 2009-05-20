@@ -1,9 +1,12 @@
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from mydrinks.models import Drink, Comment
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 admin.autodiscover()
+admin.site.register(Drink)
+admin.site.register(Comment)
 
 urlpatterns = patterns('',
     # Example:
