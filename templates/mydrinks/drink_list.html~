@@ -3,7 +3,11 @@
 {% block content %}
 <ul>
 {% for drink in object_list %}
-<li><a href="">{{drink.name}}</a><div>{{drink.meta}}</div></li>
+<li><a href="drink/{{drink.pk}}">{{drink.name}}</a><div>{{drink.meta}}</div></li>
 {% endfor %}
 </ul>
+<form method="POST" action="">
+    {{ DrinkForm }}
+    {{ CommentForm }}
+</form>
 {% endblock %}

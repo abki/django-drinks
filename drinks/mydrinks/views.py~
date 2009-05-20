@@ -1,5 +1,5 @@
 from django import forms
-from mydrinks.models import DrinkForm, CommentForm
+from drinks.models import DrinkForm, CommentForm
 
 class DrinkForm(forms.Form):
     name = forms.CharField(max_length=254)

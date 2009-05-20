@@ -1,16 +1,18 @@
 from django.conf.urls.defaults import *
-from django.contrib import admin
-from mydrinks.models import Drink, Comment
 from django.conf import settings
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-admin.autodiscover()
-admin.site.register(Drink)
-admin.site.register(Comment)
+from django.contrib import admin
 
-DRINKS = {  'queryset': Drink.objects.all(),
-            }
+from mydrinks.models import Drink, Comment
+from mydrinks.models import DrinkForm, CommentForm
+
+admin.autodiscover()
+
+
+EXTRA = { 'addDrink': DrinkForm,
+          'addComment': CommentForm, }
+
+DRINKS = { 'queryset': Drink.objects.all(), 'extra_context': EXTRA }
 
 urlpatterns = patterns('',
   (r'^$', 'django.views.generic.list_detail.object_list', DRINKS),
@@ -18,5 +20,5 @@ urlpatterns = patterns('',
   (r'^admin/doc/', include('django.contrib.admindocs.urls')),
   (r'^admin/', include(admin.site.urls)),
   (r'^media/(?P<path>.*)$', 'django.views.static.serve',
-    {'document_root': settings.MEDIA_ROOT, 'show_indexes': True }),
+      {'document_root': settings.MEDIA_ROOT, 'show_indexes': True }),
 )

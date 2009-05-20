@@ -35,10 +35,11 @@ class Drink(models.Model):
 
     def comments(self):
         try :
-            more = self.comment_set.all().order_by("date")[0:]
+            more = self.comment_set.all().order_by("date")[1:]
             return more
         except :
             return "Segmentation Fault : No More Comments"
+
 class Comment(models.Model):
     name = models.CharField(max_length=255)
     date = models.DateField(auto_now=True)
@@ -51,3 +52,13 @@ class Comment(models.Model):
 
     def __unicode__(self):
         return self.name
+
+#
+# FORMS
+#
+
+from django.forms import ModelForm
+
+class DrinkForm(ModelForm):
+    class Meta:
+        model = Drink

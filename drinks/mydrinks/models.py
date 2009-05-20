@@ -52,3 +52,17 @@ class Comment(models.Model):
 
     def __unicode__(self):
         return self.name
+
+#
+# FORMS
+#
+
+from django.forms import ModelForm
+
+class DrinkForm(ModelForm):
+    class Meta:
+        model = Drink
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment

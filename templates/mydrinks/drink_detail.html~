@@ -9,9 +9,13 @@
   <li class="comment">
     <ul>
       <li class="rated by date"><span class="rated">{{comment.get_rating_display}}<span> by <span class="by">{{comment.name}}</span> <span class="date">{{comment.date}}</span></li>
+      <li class="comment">{{comment.content}}</li>
     </ul>
   </li>
 {% endfor %}
 <ul>
+<form method="POST" action="">
+    {{ CommentForm }}
+</form>
 {% endblock %}
 {# pate modeler... #}
